@@ -1,4 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http'; 
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,8 +17,8 @@ import { AboutComponent } from './about/about.component';
 import { StaffComponent } from './staff/staff.component';
 import { NewsallComponent } from './newsall/newsall.component';
 import { RouterModule } from '@angular/router';
-
-import {NewsService} from './shared/news.service';
+import { NewsService } from './shared/news.service';
+import { ProductService } from './shared/product.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {NewsService} from './shared/news.service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     AppRoutingModule,
     RouterModule.forRoot([
       {path: '', component:NewsComponent},
@@ -48,7 +50,7 @@ import {NewsService} from './shared/news.service';
       {path: '**', redirectTo: ''}
     ], {useHash: true})
   ],
-  providers: [Title, NewsService],
+  providers: [Title, NewsService, ProductService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

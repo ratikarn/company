@@ -1,23 +1,26 @@
 <!-- Articles -->
 <div class="row">
     <div class="col-md-8">
-        <article class="col-xs-12">
-            <h2>Premier Niche Markets</h2>
-            <p>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively
-                coordinate proactive e-commerce
-                via process-centric "outside the box" thinking. Completely pursue scalable customer service
-                through sustainable potentialities.</p>
-            <p><button class="btn btn-outline-success">Read More</button></p>
-            <p class="pull-right"><span class="tag tag-default">keyword</span> <span class="tag tag-default">tag</span>
-                <span class="tag tag-default">post</span></p>
+
+        <img *ngIf="isLoading" class="mx-auto d-block" src="./assets/images/loading.gif" >
+        
+        <label for="search">ค้นหาข่าว </label> 
+        <input type="text" #search (keyup)="onSearch(search.value)">
+
+        <article class="col-xs-12" *ngFor="let item of news">
+            <h2>{{item.title}}</h2>
+            <img [src]="item.urlToImage" class="img-fluid" alt="">
+            <p>{{item.description}}</p>
+            <p><a [href]="item.url" [target]="_blank" class="btn btn-outline-success">อ่านต่อ</a></p>
+            <p class="pull-right"><span class="tag tag-default">{{item.publishedAt | date:'dd/MM/yyy'}}</span></p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Today</a></li>
-                <li class="list-inline-item"><a href="#"><span class="glyphicon glyphicon-comment"></span> 2
-                        Comments</a></li>
-                <li class="list-inline-item"><a href="#"><span class="glyphicon glyphicon-share"></span> 8
-                        Shares</a></li>
+                <li class="list-inline-item">{{item.author}}</li>
+                
             </ul>
         </article>
+        <div class="alert alert-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>
     </div>
     <div class="col-md-4">
         <app-login></app-login>
