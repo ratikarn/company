@@ -11,6 +11,8 @@ import { Product } from '../shared/product';
 })
 export class ProductComponent implements OnInit {
   product: Product[];
+  keywordFilter:string;
+  
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() {
@@ -22,7 +24,7 @@ export class ProductComponent implements OnInit {
   }
 
   onShowDetail(product:Product) {
-    this.router.navigate(['/product', product.id]);
+    this.router.navigate(['/product', product.id, 'product_name', product.c_title]);
   }
 
 }

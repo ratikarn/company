@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-6">
+
+		<div class="card">
+			<div class="card-header p-b-0">
+				<h5 class="card-title">
+					<i class="fa fa-sign-in" aria-hidden="true"></i> ลงทะเบียน Auth0.com
+				</h5>
+			</div>
+			<div class="card-block">
+				<form novalidate #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+
+					<div class="form-group">
+						<input #email="ngModel" ngModel type="email" class="form-control" id="email" name="email" placeholder="Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+						<div [hidden]="email.valid || email.pristine" class="form-control-feedback alert alert-danger">
+							<div *ngIf="email.errors && email.errors.required">กรุณากรอกอีเมล</div>
+							<div *ngIf="email.errors && email.errors.pattern">รูปแบบอีเมลไม่ถูกต้อง</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<input #password="ngModel" ngModel type="password" class="form-control" id="password" name="password" placeholder="Password" required minlength="3">
+						<div [hidden]="password.valid || password.pristine" class="form-control-feedback alert alert-danger">กรุณากรอก Password และต้องกรอกมากกว่า 3 ตัวอักษร</div>
+					</div>
+
+					<button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-primary">ตกลง</button>
+					<img *ngIf="loading" src="./assets/images/loading.gif">
+					<br>
+					<br>
+					<div *ngIf="isError" class="alert alert-danger">
+						 {{errorMessage?.description}}	
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>

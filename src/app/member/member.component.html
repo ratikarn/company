@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate #form1="ngForm" (ngSubmit)="onSubmit(form1.value)">
+            <div class="form-group">
+                <label for="fullname">Full name</label>
+                <input [(ngModel)]="member.fullname" #fullname="ngModel" type="text" class="form-control" id="exampleFormControlInput1" name="fullname"
+                    placeholder="fullname" required>
+                <div [hidden]="fullname.valid || fullname.pristine" class="form-control-feedback alert alert-danger">กรุณากรอกชื่อและนามสกุล</div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email"
+                    placeholder="name@example.com" >
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="exampleFormControlInput1" name="password"
+                    placeholder="password">
+            </div>
+
+            <fieldset class="form-group">
+                <label for="sex">Sex</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sex" id="sex"
+                        value="ชาย" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        ชาย
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sex" id="sex"
+                        value="หญิง">
+                    <label class="form-check-label" for="exampleRadios2">
+                        หญิง
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for="edu">การศึกษา</label>
+                <select class="form-control" id="edu" name="edu">
+                    <option selected value="">-----กรุณาเลือกรายการ-----</option>
+                    <option *ngFor="let item of edus" [value]="item">{{item}}</option>
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="isSubscribe">
+                <label class="form-check-label" name="isSubscribe" for="exampleCheck1">รับข่าวสารจากเรา</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br><br>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </form>
+    </div>
+</div>

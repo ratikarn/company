@@ -1,1 +1,17 @@
-<p>product-detail works!</p>
+<div class="row">
+    <div class="col-md-12">
+        <h3>คอร์สเรียน {{product_name}}</h3>
+        <ul class="list-group">
+            <li *ngFor="let item of productDetail" class="list-group-item">
+                {{item.ch_title}}
+                <br>
+                <a href="https://www.youtube.com/watch?v={{item.ch_url}}" target="_blank">ดูบน Youtube</a>
+                <span class="float-right tag tag-default">
+                    <app-product-rate [item]="item.ch_view" (itemClick)="onClick($event, itemfromchild)"></app-product-rate>
+                </span>
+            </li>
+        </ul>
+        <br>
+        <button class="btn btn-primary" (click)="goBack()">ย้อนกลับ</button>
+    </div>
+</div>

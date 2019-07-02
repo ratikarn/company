@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { Product } from './product';
+import { ProductDetail } from './product-detail';
 
 @Injectable()
 export class ProductService {
@@ -18,6 +19,12 @@ export class ProductService {
   getProduct():Observable<Product[]> {
     return this.http.get('https://codingthailand.com/api/get_courses.php')
     .map((res:Response) => <Product[]> res.json())
+    .catch(this.handelError);
+  }
+
+  getProductDetail(id:number):Observable<ProductDetail[]> {
+    return this.http.get('https://codingthailand.com/api/get_course_detail.php?course_id=' + id)
+    .map((res:Response) => <ProductDetail[]> res.json())
     .catch(this.handelError);
   }
 

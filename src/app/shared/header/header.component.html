@@ -20,20 +20,30 @@
 				<a class="nav-link" [routerLink] = "['/staff']">ทีมงาน</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" [routerLink] = "['about']">เกี่ยวกับเรา</a>
+				<a class="nav-link" [routerLink] = "['/about']">เกี่ยวกับเรา</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
-					Dropdown
+					ผู้ใช้
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
+					<a class="dropdown-item" [routerLink] = "['/register']">สมัครสมาชิก</a>
+					<a class="dropdown-item" [routerLink] = "['/register2']">สมัครสมาชิก2</a>
+					<a class="dropdown-item" [routerLink] = "['/reactiveform']">สมัครสมาชิก Reactive Form</a>
 				</div>
 			</li>
+			<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						รายงาน
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" [routerLink] = "['/report1']">รายงาน 1</a>
+						<a class="dropdown-item" [routerLink] = "['/report2']">รายงาน 2</a>
+						<a class="dropdown-item" [routerLink] = "['/report3']">รายงาน 3</a>
+					</div>
+				</li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

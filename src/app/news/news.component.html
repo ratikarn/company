@@ -8,7 +8,7 @@
         <input type="text" #search (keyup)="onSearch(search.value)">
 
         <article class="col-xs-12" *ngFor="let item of news">
-            <h2>{{item.title}}</h2>
+            <h2>{{item.title | mypipe}}</h2>
             <img [src]="item.urlToImage" class="img-fluid" alt="">
             <p>{{item.description}}</p>
             <p><a [href]="item.url" [target]="_blank" class="btn btn-outline-success">อ่านต่อ</a></p>
