@@ -32,6 +32,7 @@ import { AuthRegisterComponent } from './auth-register/auth-register.component';
 import { Report1Component } from './report1/report1.component';
 import { Report2Component } from './report2/report2.component';
 import { Report3Component } from './report3/report3.component';
+import { SecureComponent } from './secure/secure.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { Report3Component } from './report3/report3.component';
     AuthRegisterComponent,
     Report1Component,
     Report2Component,
-    Report3Component
+    Report3Component,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,7 @@ import { Report3Component } from './report3/report3.component';
       {path: 'newsall', component:NewsallComponent},
       {path: 'staff', component:StaffComponent},
       {path: 'about', component:AboutComponent},
+      {path: 'secure', component:SecureComponent},
       {path: 'register', component:RegisterComponent},
       {path: 'register2', component:MemberComponent},
       {path: 'reactiveform', component:Register2Component},
